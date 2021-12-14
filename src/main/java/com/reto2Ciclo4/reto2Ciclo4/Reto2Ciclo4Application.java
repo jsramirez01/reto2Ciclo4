@@ -1,6 +1,7 @@
 package com.reto2Ciclo4.reto2Ciclo4;
 
 import com.reto2Ciclo4.reto2Ciclo4.repositorio.crud.CleanProdCrudRepository;
+import com.reto2Ciclo4.reto2Ciclo4.repositorio.crud.OrderCrudRepository;
 import com.reto2Ciclo4.reto2Ciclo4.repositorio.crud.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +19,8 @@ public class Reto2Ciclo4Application implements CommandLineRunner {
 	private UserCrudRepository userCrudRepository;
 	@Autowired
 	private CleanProdCrudRepository cleanProdCrudRepository;
+	@Autowired
+	private OrderCrudRepository orderCrudRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(Reto2Ciclo4Application.class, args);
 
@@ -26,6 +29,7 @@ public class Reto2Ciclo4Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		cleanProdCrudRepository.deleteAll();
+		orderCrudRepository.deleteAll();
 		userCrudRepository.deleteAll();
 		System.out.println("Database ready to go...!");
 	}
