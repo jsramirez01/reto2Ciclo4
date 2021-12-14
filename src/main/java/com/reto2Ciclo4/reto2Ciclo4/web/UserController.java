@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
     @RequestMapping("/api/user")
@@ -21,7 +22,13 @@ import java.util.List;
         public List<User> getAll() {
             return userService.getAll();
         }
-        @PostMapping("/new")
+        @GetMapping("/{id}")
+        public Optional<User> getUser(@PathVariable("id") Integer id) {
+            return userService.getUser(id);
+        }
+
+
+    @PostMapping("/new")
         @ResponseStatus(HttpStatus.CREATED)
         public User create(@RequestBody User user) {
             return userService.create(user);
