@@ -52,6 +52,11 @@ import java.util.Optional;
         public boolean emailExists(@PathVariable("email") String email) {
             return userService.emailExists(email);
         }
+
+    @GetMapping("/birthday/{month}")
+    public List<User> birthtDayList(@PathVariable("month") String monthBirthtDay) {
+        return userService.birthtDayList(monthBirthtDay);
+    }
     }
 
 

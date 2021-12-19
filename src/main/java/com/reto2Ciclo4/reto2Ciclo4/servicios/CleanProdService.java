@@ -98,4 +98,12 @@ public class CleanProdService {
             return true;
         }).orElse(false);
     }
+    public List<CleaningProduct> productsByPrice(double precio){
+        return cleanProdRepository.productsByPrice(precio);
+    }
+
+    //Reto 5
+    public List<CleaningProduct> findByDescriptionLike(String description) {
+        return cleanProdRepository.findByDescriptionLike(description);
+    }
 }
